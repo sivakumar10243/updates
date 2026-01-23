@@ -72,6 +72,64 @@ systemctl status php8.2-fpm
 
 
 
+
+
+Switch to PHP 8.2
+`````````````````````````
+
+sudo a2dismod php8.4
+sudo a2disconf php8.4-fpm
+sudo systemctl stop php8.4-fpm
+sudo systemctl disable php8.4-fpm
+
+sudo a2enconf php8.2-fpm
+sudo systemctl enable php8.2-fpm
+sudo systemctl start php8.2-fpm
+
+sudo systemctl restart apache2
+sudo update-alternatives --set php /usr/bin/php8.2
+
+---------------------------------------------------------------
+
+
+Switch to PHP 8.4
+`````````````````````````
+sudo a2dismod php8.2
+sudo a2disconf php8.2-fpm
+sudo systemctl stop php8.2-fpm
+sudo systemctl disable php8.2-fpm
+
+sudo a2enconf php8.4-fpm
+sudo systemctl enable php8.4-fpm
+sudo systemctl start php8.4-fpm
+
+sudo systemctl restart apache2
+sudo update-alternatives --set php /usr/bin/php8.4
+
+
+
+----------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 -------------------------------------------------
 
 sudo apt -y install php-cli php-zip wget unzip
