@@ -1,14 +1,17 @@
-apt install -y php8.4 libapache2-mod-php8.4 php8.4-mysql \
+```apt install -y php8.4 libapache2-mod-php8.4 php8.4-mysql \
     php8.4-cli php8.4-common php8.4-fpm php8.4-soap php8.4-gd \
     php8.4-opcache  php8.4-mbstring php8.4-zip \
     php8.4-bcmath php8.4-intl php8.4-xml php8.4-curl  \
     php8.4-imap php8.4-ldap php8.4-gmp php8.4-redis \
     php8.4-memcached
-
+```
+```
 wget http://downloads3.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz 
-
+```
+```
 tar -xvf ioncube_loaders_lin_x86-64.tar.gz
-
+```
+```
 php8.4 -i | grep extension_dir
 
 cp ioncube/ioncube_loader_lin_8.4.so /usr/lib/php/20240924
@@ -16,7 +19,8 @@ cp ioncube/ioncube_loader_lin_8.4.so /usr/lib/php/20240924
 sed -i '2 a zend_extension = "/usr/lib/php/20240924/ioncube_loader_lin_8.4.so"' /etc/php/8.4/apache2/php.ini
 sed -i '2 a zend_extension = "/usr/lib/php/20240924/ioncube_loader_lin_8.4.so"' /etc/php/8.4/cli/php.ini
 sed -i '2 a zend_extension = "/usr/lib/php/20240924/ioncube_loader_lin_8.4.so"' /etc/php/8.4/fpm/php.ini
-
+```
+```
 
 sudo sed -i -e 's/^file_uploads =.*/file_uploads = On/' \
            -e 's/^allow_url_fopen =.*/allow_url_fopen = On/' \
@@ -47,16 +51,19 @@ sudo sed -i -e 's/^file_uploads =.*/file_uploads = On/' \
            -e 's/^post_max_size =.*/post_max_size = 100M/' \
            -e 's/^max_execution_time =.*/max_execution_time = 360/' \
            /etc/php/8.4/apache2/php.ini
-           
-           
+```
+
+```           
 a2enconf php8.4-fpm
 
 systemctl enable php8.4-fpm
 systemctl restart php8.4-fpm
 systemctl restart apache2
-
+```
+```
 sudo update-alternatives --config php
-
+```
+```
 a2dismod php8.2
 a2disconf php8.2-fpm
 a2enmod proxy_fcgi setenvif
@@ -65,7 +72,7 @@ systemctl restart apache2
 systemctl stop php8.2-fpm
 systemctl disable php8.2-fpm
 systemctl status php8.2-fpm
-
+```
 
 
 
@@ -76,7 +83,7 @@ systemctl status php8.2-fpm
 
 Switch to PHP 8.2
 `````````````````````````
-
+```
 sudo a2dismod php8.4
 sudo a2disconf php8.4-fpm
 sudo systemctl stop php8.4-fpm
@@ -88,12 +95,13 @@ sudo systemctl start php8.2-fpm
 
 sudo systemctl restart apache2
 sudo update-alternatives --set php /usr/bin/php8.2
-
+```
 ---------------------------------------------------------------
 
 
 Switch to PHP 8.4
 `````````````````````````
+```
 sudo a2dismod php8.2
 sudo a2disconf php8.2-fpm
 sudo systemctl stop php8.2-fpm
@@ -105,7 +113,7 @@ sudo systemctl start php8.4-fpm
 
 sudo systemctl restart apache2
 sudo update-alternatives --set php /usr/bin/php8.4
-
+```
 
 
 ----------------------------------------------------------------
