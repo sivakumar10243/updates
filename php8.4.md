@@ -120,7 +120,7 @@ sudo update-alternatives --set php /usr/bin/php8.4
 
 
 
-##Latest composer 
+## Latest composer 
 
 ```
 sudo apt -y install php-cli php-zip wget unzip
