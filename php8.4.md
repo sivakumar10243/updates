@@ -120,8 +120,9 @@ sudo update-alternatives --set php /usr/bin/php8.4
 
 
 
--------------------------------------------------
+##Latest composer 
 
+```
 sudo apt -y install php-cli php-zip wget unzip
 
 
@@ -137,8 +138,30 @@ sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 
 sudo rm composer-setup.php
 
+```
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Notes ols 
 ------------------------------
 sudo apt remove composer -y
 
@@ -156,20 +179,7 @@ hash -r
 which composer
 composer --version
 
--------------------------------------
-
-
-
-
-
-
-
-
-
-
-
-
-
+------------------------------------
 
 
 
