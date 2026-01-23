@@ -65,3 +65,73 @@ systemctl restart apache2
 systemctl stop php8.2-fpm
 systemctl disable php8.2-fpm
 systemctl status php8.2-fpm
+
+
+
+
+
+
+
+-------------------------------------------------
+
+sudo apt -y install php-cli php-zip wget unzip
+
+
+
+sudo php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+
+HASH="$(wget -q -O - https://composer.github.io/installer.sig)"
+sudo php -r "if (hash_file('SHA384', 'composer-setup.php') === '$HASH') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+
+
+sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+
+
+sudo rm composer-setup.php
+
+
+
+------------------------------
+sudo apt remove composer -y
+
+
+which composer
+
+cd /tmp
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+php composer-setup.php
+sudo mv composer.phar /usr/local/bin/composer
+sudo chmod +x /usr/local/bin/composer
+
+
+hash -r
+which composer
+composer --version
+
+-------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+apt install -y php8.2 libapache2-mod-php8.2 php8.2-mysql \
+    php8.2-cli php8.2-common php8.2-fpm php8.2-soap php8.2-gd \
+    php8.2-opcache  php8.2-mbstring php8.2-zip \
+    php8.2-bcmath php8.2-intl php8.2-xml php8.2-curl  \
+    php8.2-imap php8.2-ldap php8.2-gmp php8.2-redis \
+    php8.2-memcached
