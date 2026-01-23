@@ -161,7 +161,7 @@ sudo rm composer-setup.php
 
 
 
-Notes ols 
+Notes old
 ------------------------------
 sudo apt remove composer -y
 
